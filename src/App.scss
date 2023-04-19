@@ -1,0 +1,24 @@
+.App {
+    background-color: rgb(125, 212, 239);
+    height: 195px;
+    .App-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 23px;
+        p {
+            font-size: 128px;
+            font-weight: 400;
+            line-height: 171.39px;
+            margin: 0;
+        }
+        .img-love {
+            width: 133px;
+            height: 114px;
+            margin-left: 175px;
+            background-image: url(../image/Screenshot_1.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

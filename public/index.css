@@ -1,0 +1,14 @@
+* {
+    box-sizing: inherit;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    line-height: 1.5rem;
+    font-family: 'Expletus Sans', cursive;
+    box-sizing: border-box;
+}
+body {
+    overflow: hidden;
+    overflow-y: scroll;
+}
