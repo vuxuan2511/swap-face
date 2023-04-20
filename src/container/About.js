@@ -4,30 +4,53 @@ import axios from 'axios';
 
 function About() {
     const [data, setData] = useState([]);
+    const [image1, setImage1] = useState(
+        'https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nam.101.png',
+    );
+    const [image2, setImage2] = useState('https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nu.101.png');
 
     useEffect(() => {
         const fetchData = async () => {
             const reponse = await axios.get('http://14.225.7.221:2663/homev1', {
                 headers: {
-                    Link_img1: 'https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nam.101.png',
-                    Link_img2: 'https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nu.101.png',
+                    Link_img1: image1,
+                    Link_img2: image2,
                 },
             });
             setData(reponse.data);
-            console.log(reponse.data);
         };
         fetchData();
-    }, []);
+    }, [image1, image2]);
+    const handleChangeImageMale = async (event) => {
+        let data = event.target.files;
+        console.log(data);
+        let file = data[0];
+        if (file) {
+            const objectUrl = URL.createObjectURL(file);
+            setImage1(objectUrl);
+        }
+    };
+    const handleChangeImageFemale = async (event) => {
+        let data = event.target.files;
+        console.log(data);
+        let file = data[0];
+        if (file) {
+            const objectUrl = URL.createObjectURL(file);
+            setImage2(objectUrl);
+        }
+    };
 
     return (
         <div className="wrapper-about">
             <div className="about-top">
                 <div className="male">
-                    <div className="male-image"></div>
+                    <input type="file" id="male" onChange={handleChangeImageMale} />
+                    <div className="male-image" style={{ backgroundImage: `url(${image1})` }}></div>
                     <div className="name">Name Male</div>
                 </div>
                 <div className="female">
-                    <div className="female-image"></div>
+                    <input type="file" id="female" onChange={handleChangeImageFemale} />
+                    <div className="female-image" style={{ backgroundImage: `url(${image2})` }}></div>
                     <div className="name">Name feMale</div>
                 </div>
                 <div className="img-swap">
