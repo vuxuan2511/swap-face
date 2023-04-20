@@ -4,10 +4,11 @@
     width: calc(100vw - 340px);
     .about-top {
         width: 100%;
-        display: flex;
+        display: grid;
+        grid-template-columns: auto auto auto;
         margin-top: 36px;
         .male {
-            width: 50%;
+            width: 30%;
             display: flex;
             flex-direction: column;
             .male-image {
@@ -18,6 +19,7 @@
                 background-color: #d9d9d9;
                 border: 1px solid #000000;
                 border-radius: 40px;
+                background-image: url(../../image/nam.101.png);
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -31,6 +33,34 @@
             }
         }
         .female {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            .female-image {
+                display: flex;
+                margin: 0 auto;
+                width: 240px;
+                height: 240px;
+                background-color: #d9d9d9;
+                border: 1px solid #000000;
+                border-radius: 40px;
+                background-image: url(../../image/nu.101.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .name {
+                text-align: center;
+                padding-top: 28px;
+                font-weight: 500;
+                font-size: 36px;
+                line-height: 44px;
+            }
+        }
+        .img-swap {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
             .female-image {
                 display: flex;
                 margin: 0 auto;
