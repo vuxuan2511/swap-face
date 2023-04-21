@@ -8,6 +8,8 @@ function About() {
         'https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nam.101.png',
     );
     const [image2, setImage2] = useState('https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nu.101.png');
+    const [imgBase64M, setImgBase64M] = useState('');
+    const [imgBase64Fm, setImgBase64Fm] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,24 +21,59 @@ function About() {
             });
             setData(reponse.data);
         };
+
+        const uploadImgMale = () => {
+            const formData = new FormData();
+            formData.append('image', imgBase64M);
+
+            let apiresponse = axios
+                .post('https://api.imgbb.com/1/upload?key=a07b4b5e0548a50248aecfb194645bac', formData)
+                .then((res) => {
+                    setImage1(res.data.data.url);
+                    return res.data;
+                })
+                .catch((error) => {
+                    return null;
+                });
+            return apiresponse;
+        };
+        const uploadImgFeMale = () => {
+            const formData = new FormData();
+            formData.append('image', imgBase64Fm);
+
+            let apiresponse = axios
+                .post('https://api.imgbb.com/1/upload?key=a07b4b5e0548a50248aecfb194645bac', formData)
+                .then((res) => {
+                    setImage2(res.data.data.url);
+                    return res.data;
+                })
+                .catch((error) => {
+                    return null;
+                });
+            return apiresponse;
+        };
+
         fetchData();
-    }, [image1, image2]);
+        uploadImgMale();
+        uploadImgFeMale();
+    }, [image1, image2, imgBase64M, imgBase64Fm]);
+
+    //
     const handleChangeImageMale = async (event) => {
-        let data = event.target.files;
-        console.log(data);
-        let file = data[0];
+        let file = event.target.files[0];
         if (file) {
             const objectUrl = URL.createObjectURL(file);
             setImage1(objectUrl);
+            setImgBase64M(file);
         }
     };
+
     const handleChangeImageFemale = async (event) => {
-        let data = event.target.files;
-        console.log(data);
-        let file = data[0];
+        let file = event.target.files[0];
         if (file) {
             const objectUrl = URL.createObjectURL(file);
             setImage2(objectUrl);
+            setImgBase64Fm(file);
         }
     };
 
