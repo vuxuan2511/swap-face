@@ -1,49 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 .wrapper-about {
-    font-family: 'Inter', sans-serif;
-    width: calc(100vw - 340px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
     .about-top {
-        width: 100%;
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: 25% 25% 25% 25%;
         margin-top: 36px;
-        .male {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-            .male-image {
-                display: flex;
-                margin: 0 auto;
-                width: 240px;
-                height: 240px;
-                background-color: #d9d9d9;
-                border: 1px solid #000000;
-                border-radius: 40px;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-            .name {
-                text-align: center;
-                padding-top: 28px;
-                font-weight: 500;
-                font-size: 36px;
-                line-height: 44px;
-            }
-        }
+
+        .male,
         .female {
-            width: 30%;
             display: flex;
             flex-direction: column;
-            .female-image {
+            align-items: center;
+            padding-right: 10px;
+            .image {
+                width: 100%;
+                min-height: 250px;
                 display: flex;
                 margin: 0 auto;
-                width: 240px;
-                height: 240px;
                 background-color: #d9d9d9;
-                border: 1px solid #000000;
-                border-radius: 40px;
-                background-image: url(../../image/nu.101.png);
+                border: 10px solid var(--color-primary);
+                border-radius: 50%;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -52,22 +30,25 @@
                 text-align: center;
                 padding-top: 28px;
                 font-weight: 500;
-                font-size: 36px;
-                line-height: 44px;
+                width: 100%;
+                font-size: 25px;
+                line-height: 30px;
             }
         }
-        .img-swap {
-            width: 30%;
+        .female-male,
+        .male-female {
             display: flex;
             flex-direction: column;
-            .female-image {
+            align-items: center;
+            margin-right: 10px;
+            .image {
+                width: 100%;
+                min-height: 250px;
                 display: flex;
                 margin: 0 auto;
-                width: 240px;
-                height: 240px;
                 background-color: #d9d9d9;
-                border: 1px solid #000000;
-                border-radius: 40px;
+                border: 1px solid var(--color-primary);
+                border-radius: 50%;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -76,9 +57,33 @@
                 text-align: center;
                 padding-top: 28px;
                 font-weight: 500;
-                font-size: 36px;
-                line-height: 44px;
+                width: 100%;
+                font-size: 25px;
+                line-height: 30px;
             }
+        }
+    }
+    .img-swap {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        .img-swap-image {
+            margin-top: 50px;
+            width: 560px;
+            height: 280px;
+            background-color: #d9d9d9;
+            border: 1px solid #000000;
+            border-radius: 40px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .name {
+            text-align: center;
+            padding-top: 28px;
+            font-weight: 500;
+            font-size: 36px;
+            line-height: 44px;
         }
     }
     .about-main {
@@ -88,15 +93,6 @@
             font-weight: 600;
             font-size: 64px;
             line-height: 76px;
-        }
-        .about-main-group {
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            font-weight: 600;
-            font-size: 32px;
-            line-height: 39px;
-            gap: 20px;
         }
     }
     .about-bottom {
@@ -109,15 +105,15 @@
             border: none;
             outline: none;
             padding: 10px 11px;
-            background-color: #7dd4ef;
+            background-color: var(--color-primary);
             border-radius: 10px;
             &:hover {
                 cursor: pointer;
             }
             i {
                 font-size: 35px;
-                color: #7dd4ef;
-                background-color: #000000;
+                color: var(--color-primary);
+                background-color: #370000;
                 border-radius: 50%;
                 padding: 10px;
             }
