@@ -4,9 +4,12 @@
     flex-direction: column;
     // align-items: center;
     .about-top {
-        display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
+        display: flex;
+        //grid-template-columns: 50% 50%;
+        // grid-template-columns: 25% 25% 25% 25%;
         margin-top: 36px;
+        justify-content: center;
+        position: relative;
 
         .male,
         .female {
@@ -15,10 +18,11 @@
             align-items: center;
             padding-right: 10px;
             .image {
-                width: 100%;
-                min-height: 250px;
-                display: flex;
-                margin: 0 auto;
+                min-width: 270px;
+                max-width: 280px;
+                min-height: 280px;
+                //display: flex;
+                // margin: 0 auto;
                 background-color: #d9d9d9;
                 border: 10px solid var(--color-primary);
                 border-radius: 50%;
@@ -34,6 +38,21 @@
                 font-size: 25px;
                 line-height: 30px;
             }
+        }
+        .male {
+            display: flex;
+            justify-content: left;
+        }
+        .icon-heart {
+            position: absolute;
+            background-image: url(../../image/iconHeart.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 111px;
+            height: 105px;
+
+            top: 100px;
         }
         .female-male,
         .male-female {
@@ -72,7 +91,7 @@
             width: 560px;
             height: 280px;
             background-color: #d9d9d9;
-            border: 1px solid #000000;
+            border: 1px solid var(--color-primary);
             border-radius: 40px;
             background-position: center;
             background-repeat: no-repeat;

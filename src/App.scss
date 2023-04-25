@@ -22,3 +22,17 @@
         }
     }
 }
+
+@media (max-width: 1023px) {
+    .App {
+        height: 140px;
+        .App-header {
+            padding-top: 0;
+            p {
+                font-size: 100px;
+                font-weight: 400;
+                line-height: 140px;
+            }
+        }
+    }
+}

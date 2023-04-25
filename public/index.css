@@ -9,10 +9,11 @@
 html {
     font-size: 62.5%;
     line-height: 1.5rem;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive !important;
     box-sizing: border-box;
 }
 body {
+    font-family: 'Pacifico', cursive !important;
     overflow: hidden;
     overflow-y: scroll;
 }

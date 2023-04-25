@@ -3,6 +3,10 @@ import './About.scss';
 import axios from 'axios';
 
 function About() {
+    const Api_key = '938c8d9c19d7ec0c6f5225d69a3ef3ae';
+    const server = 'http://14.225.7.221:2345/hometh2';
+
+    //
     const [data, setData] = useState([]);
     const [image1, setImage1] = useState(
         'https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nam.101.png',
@@ -10,15 +14,17 @@ function About() {
     const [image2, setImage2] = useState('https://raw.githubusercontent.com/thuykieu06012002/cutimage/main/nu.101.png');
     const [image3, setImage3] = useState('https://raw.githubusercontent.com/thuykieu06012002/futurelove/main/101.jpg');
     const [image4, setImage4] = useState('https://raw.githubusercontent.com/thuykieu06012002/futurelove/main/101.jpg');
+    //
 
+    // http://14.225.7.221:2345/hometh2
     useEffect(() => {
         const fetchData = async () => {
-            const reponse = await axios.get('http://14.225.7.221:2663/homev1', {
+            const reponse = await axios.get(`${server}`, {
                 headers: {
                     Link_img1: image1,
                     Link_img2: image2,
-                    Link_img3: image3,
-                    Link_img4: image4,
+                    //Link_img3: image3,
+                    //Link_img4: image4,
                 },
             });
             setData(reponse.data);
@@ -29,7 +35,7 @@ function About() {
             formData.append('image', image1);
 
             let apiresponse = axios
-                .post('https://api.imgbb.com/1/upload?key=a07b4b5e0548a50248aecfb194645bac', formData)
+                .post(`https://api.imgbb.com/1/upload?key=${Api_key}`, formData)
                 .then((res) => {
                     setImage1(res.data.data.url);
                     return res.data;
@@ -44,7 +50,7 @@ function About() {
             formData.append('image', image2);
 
             let apiresponse = axios
-                .post('https://api.imgbb.com/1/upload?key=a07b4b5e0548a50248aecfb194645bac', formData)
+                .post(`https://api.imgbb.com/1/upload?key=${Api_key}`, formData)
                 .then((res) => {
                     setImage2(res.data.data.url);
                     return res.data;
@@ -59,7 +65,7 @@ function About() {
             formData.append('image', image3);
 
             let apiresponse = axios
-                .post('https://api.imgbb.com/1/upload?key=a07b4b5e0548a50248aecfb194645bac', formData)
+                .post(`https://api.imgbb.com/1/upload?key=${Api_key}`, formData)
                 .then((res) => {
                     setImage3(res.data.data.url);
                     return res.data;
@@ -74,7 +80,7 @@ function About() {
             formData.append('image', image4);
 
             let apiresponse = axios
-                .post('https://api.imgbb.com/1/upload?key=a07b4b5e0548a50248aecfb194645bac', formData)
+                .post(`https://api.imgbb.com/1/upload?key=${Api_key}`, formData)
                 .then((res) => {
                     setImage4(res.data.data.url);
                     return res.data;
@@ -131,12 +137,13 @@ function About() {
                         <p>Name Male</p>
                     </div>
                 </div>
+                <div className="icon-heart"> </div>
                 <div className="female">
                     <input type="file" id="female" onChange={handleChangeImageFemale} />
                     <div className="image" style={{ backgroundImage: `url(${image2})` }}></div>
                     <div className="name">Name feMale</div>
                 </div>
-                <div className="male-female">
+                {/* <div className="male-female">
                     <input type="file" id="male-female" onChange={handleChangeImgMaleFemale} />
                     <div className="image" style={{ backgroundImage: `url(${image3})` }}></div>
                     <div className="name">Image Male - Female</div>
@@ -145,11 +152,11 @@ function About() {
                     <input type="file" id="female-male" onChange={handleChangeImgFemaleMale} />
                     <div className="image" style={{ backgroundImage: `url(${image4})` }}></div>
                     <div className="name">Image Female - Male</div>
-                </div>
+                </div> */}
             </div>
-            {data && data.Link_img && (
+            {data && data[0] && data[0].Link_img && (
                 <div className="img-swap">
-                    <div className="img-swap-image" style={{ backgroundImage: `url(${data.Link_img})` }}></div>
+                    <div className="img-swap-image" style={{ backgroundImage: `url(${data[0].Link_img})` }}></div>
                     <div className="name">Image Swap</div>
                 </div>
             )}
